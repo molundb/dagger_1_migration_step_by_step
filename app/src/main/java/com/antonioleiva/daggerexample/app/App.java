@@ -34,10 +34,12 @@ import dagger.ObjectGraph;
 
 public class App extends Application {
 
+    @Inject
+    AnalyticsManager analyticsManager;
     private ObjectGraph objectGraph;
-    @Inject AnalyticsManager analyticsManager;
 
-    @Override public void onCreate() {
+    @Override
+    public void onCreate() {
         super.onCreate();
         objectGraph = ObjectGraph.create(getModules().toArray());
         objectGraph.inject(this);

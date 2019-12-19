@@ -40,11 +40,14 @@ public class MainModule {
         this.view = view;
     }
 
-    @Provides @Singleton public MainView provideView() {
+    @Provides
+    @Singleton
+    public MainView provideView() {
         return view;
     }
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     public MainPresenter providePresenter(MainView mainView, FindItemsInteractor findItemsInteractor) {
         return new MainPresenterImpl(mainView, findItemsInteractor);
     }

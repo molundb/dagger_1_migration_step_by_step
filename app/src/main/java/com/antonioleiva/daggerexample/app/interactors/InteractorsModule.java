@@ -28,11 +28,13 @@ import dagger.Provides;
 )
 public class InteractorsModule {
 
-    @Provides public FindItemsInteractor provideFindItemsInteractor() {
+    @Provides
+    public FindItemsInteractor provideFindItemsInteractor() {
         return new FindItemsInteractorImpl();
     }
 
-    @Provides public LoginInteractor provideLoginInteractor() {
+    @Provides
+    public LoginInteractor provideLoginInteractor() {
         return new LoginInteractorImpl();
     }
 }

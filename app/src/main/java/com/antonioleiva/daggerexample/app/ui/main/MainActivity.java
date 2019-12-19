@@ -38,7 +38,8 @@ import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity implements MainView, AdapterView.OnItemClickListener {
 
-    @Inject MainPresenter presenter;
+    @Inject
+    MainPresenter presenter;
     private ListView listView;
     private ProgressBar progressBar;
 
@@ -51,34 +52,41 @@ public class MainActivity extends BaseActivity implements MainView, AdapterView.
         progressBar = (ProgressBar) findViewById(R.id.progress);
     }
 
-    @Override protected List<Object> getModules() {
+    @Override
+    protected List<Object> getModules() {
         return Arrays.<Object>asList(new MainModule(this));
     }
 
-    @Override protected void onResume() {
+    @Override
+    protected void onResume() {
         super.onResume();
         presenter.onResume();
     }
 
-    @Override public void showProgress() {
+    @Override
+    public void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
         listView.setVisibility(View.INVISIBLE);
     }
 
-    @Override public void hideProgress() {
+    @Override
+    public void hideProgress() {
         progressBar.setVisibility(View.INVISIBLE);
         listView.setVisibility(View.VISIBLE);
     }
 
-    @Override public void setItems(List<String> items) {
+    @Override
+    public void setItems(List<String> items) {
         listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items));
     }
 
-    @Override public void showMessage(String message) {
+    @Override
+    public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
-    @Override public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         presenter.onItemClicked(position);
     }
 }

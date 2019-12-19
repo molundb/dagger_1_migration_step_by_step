@@ -45,7 +45,8 @@ public class AppModule {
         this.app = app;
     }
 
-    @Provides public Application provideApplication() {
+    @Provides
+    public Application provideApplication() {
         return app;
     }
 }

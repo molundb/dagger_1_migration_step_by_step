@@ -33,7 +33,9 @@ import dagger.Provides;
 )
 public class DomainModule {
 
-    @Provides @Singleton public AnalyticsManager provideAnalyticsManager(Application app){
+    @Provides
+    @Singleton
+    public AnalyticsManager provideAnalyticsManager(Application app) {
         return new AnalyticsManager(app);
     }
 

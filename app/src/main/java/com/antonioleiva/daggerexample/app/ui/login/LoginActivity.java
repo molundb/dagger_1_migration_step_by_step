@@ -37,7 +37,8 @@ import javax.inject.Inject;
 
 public class LoginActivity extends BaseActivity implements LoginView, View.OnClickListener {
 
-    @Inject LoginPresenter presenter;
+    @Inject
+    LoginPresenter presenter;
 
     private ProgressBar progressBar;
     private EditText username;
@@ -54,32 +55,39 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
         findViewById(R.id.button).setOnClickListener(this);
     }
 
-    @Override protected List<Object> getModules() {
+    @Override
+    protected List<Object> getModules() {
         return Arrays.<Object>asList(new LoginModule(this));
     }
 
-    @Override public void showProgress() {
+    @Override
+    public void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
     }
 
-    @Override public void hideProgress() {
+    @Override
+    public void hideProgress() {
         progressBar.setVisibility(View.GONE);
     }
 
-    @Override public void setUsernameError() {
+    @Override
+    public void setUsernameError() {
         username.setError(getString(R.string.username_error));
     }
 
-    @Override public void setPasswordError() {
+    @Override
+    public void setPasswordError() {
         password.setError(getString(R.string.password_error));
     }
 
-    @Override public void navigateToHome() {
+    @Override
+    public void navigateToHome() {
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
-    @Override public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
         presenter.validateCredentials(username.getText().toString(), password.getText().toString());
     }
 }

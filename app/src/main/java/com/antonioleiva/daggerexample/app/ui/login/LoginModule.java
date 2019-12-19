@@ -40,11 +40,14 @@ public class LoginModule {
         this.view = view;
     }
 
-    @Provides @Singleton public LoginView provideView() {
+    @Provides
+    @Singleton
+    public LoginView provideView() {
         return view;
     }
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     public LoginPresenter providePresenter(LoginView loginView, LoginInteractor loginInteractor) {
         return new LoginPresenterImpl(loginView, loginInteractor);
     }
