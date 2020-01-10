@@ -23,6 +23,7 @@ package com.antonioleiva.daggerexample.app;
 import android.app.Application;
 
 import com.antonioleiva.daggerexample.app.domain.DomainModule;
+import com.antonioleiva.daggerexample.app.interactors.FindItemsInteractor;
 import com.antonioleiva.daggerexample.app.interactors.InteractorsModule;
 
 import dagger.Module;
@@ -30,7 +31,8 @@ import dagger.Provides;
 
 @Module(
         injects = {
-                App.class
+                App.class,
+                FindItemsInteractor.class
         },
         includes = {
                 DomainModule.class,

@@ -1,12 +1,11 @@
 package com.antonioleiva.daggerexample.app.di
 
 import android.content.Context
-import com.antonioleiva.daggerexample.app.interactors.InteractorsModule2
 import com.antonioleiva.daggerexample.app.ui.main.MainComponent
 import dagger.BindsInstance
 import dagger.Component
 
-@Component(modules = [InteractorsModule2::class])
+@Component(modules = [BridgeModule::class])
 interface ApplicationComponent {
 
   @Component.Factory
