@@ -26,6 +26,7 @@ import android.app.Application;
 import com.antonioleiva.daggerexample.app.domain.AnalyticsManager;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -41,13 +42,17 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        // Dagger 1
         objectGraph = ObjectGraph.create(getModules().toArray());
         objectGraph.inject(this);
         analyticsManager.registerAppEnter();
     }
 
+    public ObjectGraph getObjectGraph() { return objectGraph; }
+
     private List<Object> getModules() {
-        return Arrays.<Object>asList(new AppModule(this));
+        return Collections.singletonList(new AppModule(this));
     }
 
     public ObjectGraph createScopedGraph(Object... modules) {
