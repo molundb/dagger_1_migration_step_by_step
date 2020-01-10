@@ -1,6 +1,7 @@
 package com.antonioleiva.daggerexample.app.ui.main
 
 import android.content.Context
+import com.antonioleiva.daggerexample.app.getFromDagger1
 import dagger.Module2
 import dagger.Provides2
 

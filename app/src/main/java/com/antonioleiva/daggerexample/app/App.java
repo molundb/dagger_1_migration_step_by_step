@@ -53,4 +53,8 @@ public class App extends Application {
     public ObjectGraph createScopedGraph(Object... modules) {
         return objectGraph.plus(modules);
     }
+
+    public ObjectGraph getObjectGraph() {
+        return objectGraph;
+    }
 }
