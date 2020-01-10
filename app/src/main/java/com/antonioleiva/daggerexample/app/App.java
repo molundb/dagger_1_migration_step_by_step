@@ -23,6 +23,8 @@ package com.antonioleiva.daggerexample.app;
 
 import android.app.Application;
 
+import com.antonioleiva.daggerexample.app.di.ApplicationComponent;
+import com.antonioleiva.daggerexample.app.di.DaggerApplicationComponent;
 import com.antonioleiva.daggerexample.app.domain.AnalyticsManager;
 
 import java.util.Arrays;
@@ -38,12 +40,16 @@ public class App extends Application {
     AnalyticsManager analyticsManager;
     private ObjectGraph objectGraph;
 
+    private ApplicationComponent component;
+
     @Override
     public void onCreate() {
         super.onCreate();
         objectGraph = ObjectGraph.create(getModules().toArray());
         objectGraph.inject(this);
         analyticsManager.registerAppEnter();
+
+        component = DaggerApplicationComponent.factory().create(getApplicationContext());
     }
 
     private List<Object> getModules() {
@@ -56,5 +62,9 @@ public class App extends Application {
 
     public ObjectGraph getObjectGraph() {
         return objectGraph;
+    }
+
+    public ApplicationComponent getComponent() {
+        return component;
     }
 }
