@@ -25,7 +25,6 @@ import android.app.Application;
 
 import com.antonioleiva.daggerexample.app.domain.AnalyticsManager;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
