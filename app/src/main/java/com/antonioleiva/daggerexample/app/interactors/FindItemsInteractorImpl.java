@@ -27,7 +27,14 @@ import com.antonioleiva.daggerexample.app.ui.main.OnFinishedListener;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Inject2;
+
 public class FindItemsInteractorImpl implements FindItemsInteractor {
+
+    @Inject2
+    public FindItemsInteractorImpl() {
+    }
+
     @Override
     public void findItems(final OnFinishedListener listener) {
         new Handler().postDelayed(new Runnable() {

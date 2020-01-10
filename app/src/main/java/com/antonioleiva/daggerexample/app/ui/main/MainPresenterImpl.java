@@ -24,11 +24,14 @@ import com.antonioleiva.daggerexample.app.interactors.FindItemsInteractor;
 
 import java.util.List;
 
+import javax.inject.Inject2;
+
 public class MainPresenterImpl implements MainPresenter, OnFinishedListener {
 
     private MainView mainView;
     private FindItemsInteractor findItemsInteractor;
 
+    @Inject2
     public MainPresenterImpl(MainView mainView, FindItemsInteractor findItemsInteractor) {
         this.mainView = mainView;
         this.findItemsInteractor = findItemsInteractor;

@@ -28,6 +28,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.antonioleiva.daggerexample.app.App;
 import com.antonioleiva.daggerexample.app.R;
 import com.antonioleiva.daggerexample.app.ui.common.BaseActivity;
 
@@ -35,6 +36,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Inject2;
 
 public class MainActivity extends BaseActivity implements MainView, AdapterView.OnItemClickListener {
 
@@ -43,6 +45,8 @@ public class MainActivity extends BaseActivity implements MainView, AdapterView.
     private ListView listView;
     private ProgressBar progressBar;
 
+    @Inject2 MainPresenter presenter2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,8 @@ public class MainActivity extends BaseActivity implements MainView, AdapterView.
         listView = (ListView) findViewById(R.id.list);
         listView.setOnItemClickListener(this);
         progressBar = (ProgressBar) findViewById(R.id.progress);
+
+        component.getMainComponentFactory().create(this).inject(this);
     }
 
     @Override

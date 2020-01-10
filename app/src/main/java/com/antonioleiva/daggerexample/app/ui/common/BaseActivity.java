@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import com.antonioleiva.daggerexample.app.App;
+import com.antonioleiva.daggerexample.app.di.ApplicationComponent;
 
 import java.util.List;
 
@@ -32,12 +33,15 @@ import dagger.ObjectGraph;
 public abstract class BaseActivity extends Activity {
 
     private ObjectGraph activityGraph;
+    protected ApplicationComponent component;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityGraph = ((App) getApplication()).createScopedGraph(getModules().toArray());
         activityGraph.inject(this);
+
+        component = ((App) getApplication()).getComponent();
     }
 
     @Override
